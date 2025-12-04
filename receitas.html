@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Express - Receitas Brasileiras</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #fafafa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #2d3748;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            font-size: 28px;
+            cursor: pointer;
+            color: #2d3748;
+        }
+
+        .menu-dropdown {
+            position: absolute;
+            top: 70px;
+            right: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+        }
+
+        .menu-dropdown ul {
+            list-style: none;
+        }
+
+        .menu-dropdown li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu-dropdown li:last-child {
+            border-bottom: none;
+        }
+
+        .menu-dropdown a {
+            display: block;
+            padding: 12px 20px;
+            color: #2d3748;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .menu-dropdown a:hover {
+            background: #f0f0f0;
+        }
+
+        .menu-toggle:checked + .menu-icon + .menu-dropdown {
+            display: block;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: #2d3748;
+        }
+
+        .recipe-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: .3s ease;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .recipe-content {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+        }
+
+        .recipe-image {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .recipe-info {
+            flex: 1;
+        }
+
+        .recipe-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .recipe-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .rating {
+            display: flex;
+            gap: 4px;
+            margin-top: 10px;
+        }
+
+        .star {
+            font-size: 20px;
+            color: #e2e8f0;
+        }
+
+        .star.filled {
+            color: #fbbf24;
+        }
+
+        .fav-container {
+            position: relative;
+        }
+
+        .fav-checkbox {
+            display: none;
+        }
+
+        .fav-label {
+            cursor: pointer;
+            font-size: 28px;
+            color: #cbd5e0;
+            transition: .3s;
+            user-select: none;
+        }
+
+        .fav-checkbox:checked + .fav-label {
+            color: #fbbf24;
+        }
+
+        @media (min-width: 768px) {
+            .recipe-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .recipe-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="header-left">
+            <img src="Chef Express.png" alt="Logo" width="50" height="50">
+            <h1>Chef Express</h1>
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        <nav class="menu-dropdown">
+            <ul>
+                <li><a href="inicio.html">Home</a></li>
+                <li><a href="favoritos.html">Favoritos</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        <h2 class="section-title">Receitas Brasileiras</h2>
+
+        <div class="recipe-list">
+
+            <!-- Receita 1: Feijoada -->
+            <div class="recipe-card">
+                <div class="recipe-content">
+                    <img src="https://sabores-new.s3.amazonaws.com/public/2024/11/feijoada_1.jpg" class="recipe-image" alt="Feijoada">
+                    <div class="recipe-info">
+                        <div class="recipe-header">
+                            <div class="recipe-title">Feijoada</div>
+                            <div class="fav-container">
+                                <input type="checkbox" id="fav1" class="fav-checkbox">
+                                <label for="fav1" class="fav-label">★</label>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="star filled">★</span><span class="star filled">★</span>
+                            <span class="star filled">★</span><span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receita 2: Moqueca Baiana -->
+            <div class="recipe-card">
+                <div class="recipe-content">
+                    <img src="https://sabores-new.s3.amazonaws.com/public/2024/11/moqueca-baiana-com-sodio-reduzido.jpg" class="recipe-image" alt="Moqueca Baiana">
+                    <div class="recipe-info">
+                        <div class="recipe-header">
+                            <div class="recipe-title">Moqueca Baiana</div>
+                            <div class="fav-container">
+                                <input type="checkbox" id="fav2" class="fav-checkbox">
+                                <label for="fav2" class="fav-label">★</label>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="star filled">★</span><span class="star filled">★</span>
+                            <span class="star filled">★</span><span class="star filled">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receita 3: Pão de Queijo -->
+            <div class="recipe-card">
+                <div class="recipe-content">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdt_gMXmSj7Hbr14GwbBq9q4qf91JimRH2w&s" class="recipe-image" alt="Pão de Queijo">
+                    <div class="recipe-info">
+                        <div class="recipe-header">
+                            <div class="recipe-title">Pão de Queijo</div>
+                            <div class="fav-container">
+                                <input type="checkbox" id="fav3" class="fav-checkbox">
+                                <label for="fav3" class="fav-label">★</label>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="star filled">★</span><span class="star filled">★</span>
+                            <span class="star filled">★</span><span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receita 4: Brigadeiro -->
+            <div class="recipe-card">
+                <div class="recipe-content">
+                    <img src="https://s2-receitas.glbimg.com/hT_mwWzl5dBsGdINZKnU2GFt3iI=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2023/O/6/O6gVqvQ02RbAo8TPZGcQ/brigadeiro-receita.jpg" class="recipe-image" alt="Brigadeiro">
+                    <div class="recipe-info">
+                        <div class="recipe-header">
+                            <div class="recipe-title">Brigadeiro</div>
+                            <div class="fav-container">
+                                <input type="checkbox" id="fav4" class="fav-checkbox">
+                                <label for="fav4" class="fav-label">★</label>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="star filled">★</span><span class="star filled">★</span>
+                            <span class="star filled">★</span><span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receita 5: Coxinha -->
+            <div class="recipe-card">
+                <div class="recipe-content">
+                    <img src="https://cdn0.tudoreceitas.com/pt/posts/1/9/1/coxinha_simples_191_orig.jpg" class="recipe-image" alt="Coxinha">
+                    <div class="recipe-info">
+                        <div class="recipe-header">
+                            <div class="recipe-title">Coxinha</div>
+                            <div class="fav-container">
+                                <input type="checkbox" id="fav5" class="fav-checkbox">
+                                <label for="fav5" class="fav-label">★</label>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="star filled">★</span><span class="star filled">★</span>
+                            <span class="star filled">★</span><span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receita 6: Arroz Carreteiro -->
+            <div class="recipe-card">
+                <div class="recipe-content">
+                    <img src="https://i.panelinha.com.br/i1/bk-1581-panelinha-03-09-21-319.webp" class="recipe-image" alt="Arroz Carreteiro">
+                    <div class="recipe-info">
+                        <div class="recipe-header">
+                            <div class="recipe-title">Arroz Carreteiro</div>
+                            <div class="fav-container">
+                                <input type="checkbox" id="fav6" class="fav-checkbox">
+                                <label for="fav6" class="fav-label">★</label>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="star filled">★</span><span class="star filled">★</span>
+                            <span class="star filled">★</span><span class="star filled">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

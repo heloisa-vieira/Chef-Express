@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Express - Favoritos</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #fafafa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #2d3748;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .back-button:hover {
+            background: #4a5568;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: #2d3748;
+        }
+
+        .recipe-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: .3s ease;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .recipe-content {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+        }
+
+        .recipe-image {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .recipe-info {
+            flex: 1;
+        }
+
+        .recipe-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .recipe-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .rating {
+            display: flex;
+            gap: 4px;
+            margin-top: 10px;
+        }
+
+        .star {
+            font-size: 20px;
+            color: #e2e8f0;
+        }
+
+        .star.filled {
+            color: #fbbf24;
+        }
+
+        /* FAVORITAR — SEM JAVASCRIPT */
+        .fav-container {
+            position: relative;
+        }
+
+        .fav-checkbox {
+            display: none;
+        }
+
+        .fav-label {
+            cursor: pointer;
+            font-size: 28px;
+            color: #cbd5e0;
+            transition: .3s;
+            user-select: none;
+        }
+
+        .fav-checkbox:checked + .fav-label {
+            color: #fbbf24;
+        }
+
+        @media (min-width: 768px) {
+            .recipe-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .recipe-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <a href="inicio.html" class="back-button">← Voltar</a>
+
+    <h2 class="section-title">Favoritos</h2>
+
+    <div class="recipe-list">
+
+        <!-- FAVORITO 1 -->
+        <div class="recipe-card">
+            <div class="recipe-content">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=400&fit=crop" class="recipe-image">
+                <div class="recipe-info">
+                    <div class="recipe-header">
+                        <div class="recipe-title">Bolo de Chocolate</div>
+                        <div class="fav-container">
+                            <input type="checkbox" id="favf1" class="fav-checkbox" checked>
+                            <label for="favf1" class="fav-label">★</label>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <span class="star filled">★</span><span class="star filled">★</span>
+                        <span class="star filled">★</span><span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAVORITO 2 -->
+        <div class="recipe-card">
+            <div class="recipe-content">
+                <img src="https://sabores-new.s3.amazonaws.com/public/2025/04/pudim.jpg" class="recipe-image">
+                <div class="recipe-info">
+                    <div class="recipe-header">
+                        <div class="recipe-title">Pudim de Tapioca</div>
+                        <div class="fav-container">
+                            <input type="checkbox" id="favf2" class="fav-checkbox" checked>
+                            <label for="favf2" class="fav-label">★</label>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <span class="star filled">★</span><span class="star filled">★</span>
+                        <span class="star filled">★</span><span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAVORITO 3 -->
+        <div class="recipe-card">
+            <div class="recipe-content">
+                <img src="https://s2-receitas.glbimg.com/KWpGf7SHzNbPSab_Z3fmhDOGCmo=/0x0:1080x608/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2022/A/5/RQBWn4SlyzO0JWxYflwg/capa-materia-gshow-102-.png" class="recipe-image">
+                <div class="recipe-info">
+                    <div class="recipe-header">
+                        <div class="recipe-title">Risoto de Camarão</div>
+                        <div class="fav-container">
+                            <input type="checkbox" id="favf3" class="fav-checkbox" checked>
+                            <label for="favf3" class="fav-label">★</label>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <span class="star filled">★</span><span class="star filled">★</span>
+                        <span class="star filled">★</span><span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- end favoritos list -->
+
+</div>
+</body>
+</html>

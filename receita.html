@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pudim de Tapioca</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* BOTÃO DE VOLTAR */
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 10px 16px;
+            background: #152039;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .btn-voltar:hover {
+            background: #0f172a;
+        }
+
+        /* CARD PRINCIPAL */
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: auto;
+            max-width: 900px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .img-receita {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            background: #ececec;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+        }
+
+        /* COMENTÁRIOS */
+        .comentarios {
+            margin-top: 40px;
+        }
+
+        .comentario {
+            background: #e9e9e9;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .data {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* FORMULÁRIO */
+        form {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            background:#152039;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0f172a;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- BOTÃO DE VOLTAR -->
+    <a href="inicio.html" class="btn-voltar">← Voltar</a>
+
+    <h1>Pudim de Tapioca</h1>
+
+    <div class="card">
+        
+        <img class="img-receita" src="https://sabores-new.s3.amazonaws.com/public/2025/04/pudim.jpg" alt="Pudim de Tapioca">
+
+        <div class="info">
+            <p><strong>Tempo de preparo:</strong> 1h 30min</p>
+            <p><strong>Rendimento:</strong> 10 porções</p>
+            <p><strong>Dificuldade:</strong> Fácil</p>
+        </div>
+
+        <h2>Ingredientes</h2>
+        <ul>
+            <li>1 xícara de tapioca granulada</li>
+            <li>500 ml de leite quente</li>
+            <li>1 lata de leite condensado</li>
+            <li>1 vidro de leite de coco</li>
+            <li>3 ovos</li>
+            <li>1 xícara de açúcar (para a calda)</li>
+        </ul>
+
+        <h2>Modo de Preparo</h2>
+        <ol>
+            <li>Hidrate a tapioca no leite quente por 30 minutos.</li>
+            <li>Misture o leite condensado, o leite de coco e os ovos.</li>
+            <li>Junte tudo à tapioca hidratada.</li>
+            <li>Faça o caramelo com açúcar e coloque na forma.</li>
+            <li>Despeje a mistura.</li>
+            <li>Asse em banho-maria por 1 hora.</li>
+            <li>Gele por 3 horas antes de desenformar.</li>
+        </ol>
+
+        <!-- COMENTÁRIOS -->
+        <div class="comentarios">
+            <h2>Comentários dos Usuários</h2>
+
+            <div class="comentario">
+                <p><strong>Ana:</strong> Fiz e ficou perfeito! Minha família amou.</p>
+                <span class="data">01/12/2025</span>
+            </div>
+
+            <div class="comentario">
+                <p><strong>Elisa:</strong> Primeira vez fazendo pudim de tapioca e deu super certo!</p>
+                <span class="data">27/11/2025</span>
+            </div>
+
+            <div class="comentario">
+                <p><strong>Mariana:</strong> Receita fácil e deliciosa!</p>
+                <span class="data">24/11/2025</span>
+            </div>
+
+            <h3>Deixe seu comentário</h3>
+
+            <form>
+                <input type="text" placeholder="Seu nome">
+                <textarea placeholder="Escreva seu comentário..." rows="4"></textarea>
+                <button type="button">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
